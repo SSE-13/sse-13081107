@@ -6,10 +6,10 @@
  * 学号：13081107
 
 ##兴趣爱好：
- *看动画~[bilibili弹幕视频网](http://www.bilibili.com/)
+ * 看动画~[bilibili弹幕视频网](http://www.bilibili.com/)
  
  ##建议：
- *没有什么特别的建议，因为第一节课生病了没来……
+ * 没有什么特别的建议，因为第一节课生病了没来……
 
 ##代码片段：
  import UIKit     
