@@ -13,4 +13,14 @@
 
 ##代码片段：
 import static java.lang.Math.*;     
-{}
+public class Text     
+{     
+    public static void main(String[] args)     
+    {     
+        double a = random();     
+        for(int i = 0;i<10;i++)     
+        {     
+            System.out.println(a);     
+        }     
+    }     
+}     
