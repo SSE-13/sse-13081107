@@ -12,12 +12,15 @@
  * 没有什么特别的建议，因为第一节课生病了没来……
 
 ##代码片段：
- import UIKit     
- class ViewController:UIVewController{     
-   override func viewDidLoad(){     
-     super.viewDidLoad()     
-     }     
-   override func didReceiveMemoryWarning(){     
-    super.didReceiveMemoryWarning()     
-   }     
- }
+import static java.lang.Math.*;
+public class Text
+{
+    public static void main(String[] args)
+    {
+        double a = random();
+        for(int i = 0;i<10;i++)
+        {
+            System.out.println(a);
+        }
+    }
+}
