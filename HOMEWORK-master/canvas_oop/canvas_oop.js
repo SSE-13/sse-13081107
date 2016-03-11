@@ -96,7 +96,7 @@ function loadResource(imageList, callback) {
 var canvas = document.getElementById("game");
 var context = canvas.getContext("2d");
 var rect = new Rect();
-rect.width = 200;
+rect.width = 300;
 rect.height = 100;
 rect.color = '#00FF00';
 var rect2 = new Rect();
