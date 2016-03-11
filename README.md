@@ -20,7 +20,7 @@ public class Text
         double a = random();     
         for(int i = 0;i<10;i++)     
         {     
-            System.out.println(a);     
+            System.out.println(a+1);     
         }     
     }     
 }     
