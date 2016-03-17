@@ -2,11 +2,11 @@
  * 重力加速度
  */
 var GRAVITY = 9.8;
-var maxVx = 0;
 var BOUNDS_BOTTOM = 400;
 var BOUNDS_LEFT = 0;
 var BOUNDS_RIGHT = 400;
 var BOUNCE = 0.95;
+var FRICTION = 0.5;
 /**
  * 计时器系统
  */
@@ -45,40 +45,27 @@ var Body = (function () {
         this.displayObject = displayObject;
     }
     Body.prototype.onTicker = function (duringTime) {
-        if (maxVx < this.vx) {
-            maxVx = this.vx;
-        }
         this.vy += duringTime * GRAVITY;
-        /* if( this.y  = BOUNDS_BOTTOM-this.height){
-                  this.vx += duringTime * a;
-         }*/
-        this.x += duringTime * this.vx;
         this.y += duringTime * this.vy;
-        if (Math.abs(this.vx) < maxVx * 0.1) {
-            this.vx = 0;
-            GRAVITY = 0;
-            this.vy = 0;
-        }
-        //if(Math.abs(this.y)<0.5){
-        // GRAVITY=0;
-        // this.vy=0;
-        //  }
+        this.x += duringTime * this.vx;
         //反弹
         if (this.y + this.height > BOUNDS_BOTTOM) {
-            this.y = BOUNDS_BOTTOM - this.height;
+            this.y = 300;
             this.vy = -BOUNCE * this.vy;
-            this.vx = this.vx * BOUNCE;
-        }
-        if (this.y < 0) {
-            this.y = 0;
-            this.vy = -BOUNCE * this.vy;
+            //摩擦
+            if (this.vx > 0) {
+                this.vx = this.vx - FRICTION;
+            }
+            if (this.vx < 0) {
+                this.vx = this.vx + FRICTION;
+            }
         }
         //TODO： 左右越界反弹
         if (this.x + this.width > BOUNDS_RIGHT) {
-            this.x = BOUNDS_RIGHT - this.width;
+            this.x = 250;
             this.vx = -BOUNCE * this.vx;
         }
-        if (this.x < 0) {
+        if (this.x + this.width < BOUNDS_LEFT + 150) {
             this.x = 0;
             this.vx = -BOUNCE * this.vx;
         }
@@ -99,8 +86,8 @@ rect.color = '#FF0000';
 var body = new Body(rect);
 body.width = rect.width;
 body.height = rect.height;
-body.vx = 3; //需要保证 vx 在 0-50的范围内行为正常
-body.vy = 5; //需要保证 vy 在 0-50的范围内行为正常
+body.vx = 50; //需要保证 vx 在 0-50的范围内行为正常
+body.vy = 50; //需要保证 vy 在 0-50的范围内行为正常
 var renderCore = new RenderCore();
 var ticker = new Ticker();
 renderCore.start([rect]);
