@@ -34,8 +34,6 @@ right_leg.source = 'rightleg.png';
 humanContainer.addChild(right_leg);
 right_leg.x = 50;
 right_leg.y = 50;
-humanContainer.scaleX = 0.5;
-humanContainer.scaleY = 0.5;
 humanContainer.globalMatrix;
 humanContainer.x = 200;
 humanContainer.y = 300;
@@ -43,7 +41,7 @@ humanContainer.y = 300;
 console.log(humanContainer.globalMatrix);
 var renderCore = new render.RenderCore();
 //renderCore.start(humanContainer, ["wander-icon.jpg"]);
-renderCore.start(humanContainer, ['head.png', 'trunk.png', 'left_arm.png', 'right_arm.png', 'left_leg.png', 'right_leg.png']);
+renderCore.start(humanContainer, ['head.png', 'body.png', 'leftarm.png', 'rightarm.png', 'leftleg.png', 'rightleg.png']);
 var HumanBody = (function (_super) {
     __extends(HumanBody, _super);
     function HumanBody() {

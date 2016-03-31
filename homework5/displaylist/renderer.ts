@@ -1,3 +1,4 @@
+
 var canvas: HTMLCanvasElement = document.getElementById("game") as HTMLCanvasElement;
 var context = canvas.getContext("2d");
 
@@ -26,6 +27,7 @@ module render {
         constructor() {
             this.globalMatrix = new render.Matrix();
         }
+        
 
         draw(context: CanvasRenderingContext2D) {
 
@@ -42,8 +44,9 @@ module render {
             }
             else {
                 //TODO:
-                // GLOBAL_MATRIX = PARENT_GLOBAL_MATRIX * LOCAL_MATRIX
-                this.globalMatrix = localMatrix;
+                // GLOBAL_MATRIX = LOCAL_MATRIX * PARENT_GLOBAL_MATRIX 
+               var parentGlobelMatrix=this.parent.globalMatrix;
+               this.globalMatrix.transformToGlobel(localMatrix,parentGlobelMatrix);
             }
 
 

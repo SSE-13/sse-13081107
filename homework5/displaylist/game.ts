@@ -48,8 +48,7 @@ right_leg.y=50;
 
 
 
-humanContainer.scaleX=0.5;
-humanContainer.scaleY=0.5;
+
 humanContainer.globalMatrix
 humanContainer.x=200;
 humanContainer.y=300;
