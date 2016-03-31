@@ -213,16 +213,29 @@ module render {
         public toString(): string {
             return "(a=" + this.a + ", b=" + this.b + ", c=" + this.c + ", d=" + this.d + ", tx=" + this.tx + ", ty=" + this.ty + ")";
         }
+        
+       
 
         /**
          * 根据显示对象的属性确定当前矩阵
          */
+      
+            public   transformToGlobel(localMatrix,parentGlobelMatrix){
+            
+           this.a=localMatrix.a *parentGlobelMatrix.a+localMatrix.b *parentGlobelMatrix.c;
+              this.b=localMatrix.a *parentGlobelMatrix.b+localMatrix.b *parentGlobelMatrix.d;
+              this.c=localMatrix.c *parentGlobelMatrix.a+localMatrix.d *parentGlobelMatrix.c;
+              this.d=localMatrix.c *parentGlobelMatrix.b+localMatrix.d *parentGlobelMatrix.d;
+            this.tx=localMatrix.tx *parentGlobelMatrix.a+localMatrix.ty *parentGlobelMatrix.c+1*parentGlobelMatrix.tx;
+              this.ty=localMatrix.tx *parentGlobelMatrix.b+localMatrix.ty *parentGlobelMatrix.d+1*parentGlobelMatrix.ty;
+              
+        }
         updateFromDisplayObject(x: number, y: number, scaleX: number, scaleY: number, rotation: number) {
 
             this.tx = x;
             this.ty = y;
 
-            var skewX, skewY;
+            var skewX, skewY; 
             skewX = skewY = rotation / 180 * Math.PI;;
 
             if ((skewX == 0 || skewX == TwoPI) && (skewY == 0 || skewY == TwoPI)) {
